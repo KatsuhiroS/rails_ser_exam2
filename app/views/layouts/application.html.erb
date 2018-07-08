@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Exam</title>
+    <title>Achieve</title>
     <%= csrf_meta_tags %>
+    <meta charset="UTF-8">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <ul>
+        <li class = "facebook_img"><%= image_tag("facebook.jpg") %></li>
+        <li><%= link_to "トップページ", root_path %></li>
+        <li><%= link_to "ブログ一覧", blogs_path %></li>
+        <li><%= link_to "新規投稿", new_blog_path %></li>
+      </ul>
+    </header>
     <%= yield %>
+    <footer>
+      <p>運営会社DIVE INTO CODE株式会社</p>
+      <p>© 2015-2016 Copyright DIVE INTO CODE Corp.</p>
+    </footer>
   </body>
 </html>
