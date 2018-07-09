@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:edit, :update, :destroy]
+  before_action :logged_in?, only: [:new, :edit, :show, :destroy]
 
   def index
     @blogs = Blog.all
@@ -41,6 +42,13 @@ class BlogsController < ApplicationController
   def destroy
     @blog.destroy
     redirect_to blogs_path
+  end
+
+  def logged_in?
+    unless current_user.present?
+      redirect_to new_session_path
+    end
+
   end
 
   private
