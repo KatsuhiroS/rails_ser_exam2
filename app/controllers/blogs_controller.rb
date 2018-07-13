@@ -17,12 +17,14 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(blog_params)
     @blog.user_id = current_user.id
-    if @blog.save
-      ContactMailer.contact_mail(@blog).deliver
-      redirect_to blogs_path
-    else
-      render 'new'
-    end
+
+      if @blog.save
+        ContactMailer.contact_mail(@blog).deliver
+        redirect_to blogs_path
+      else
+        render 'new'
+      end
+
   end
 
   def confirm
@@ -31,6 +33,8 @@ class BlogsController < ApplicationController
     @blog = current_user.blogs.build(blog_params)
     render :new if @blog.invalid?
   end
+
+
 
   def edit
   end
@@ -60,7 +64,7 @@ class BlogsController < ApplicationController
 
   private
   def blog_params
-    params.require(:blog).permit(:title, :content)
+    params.require(:blog).permit(:title, :content, :image, :image_cache)
   end
 
   def set_blog

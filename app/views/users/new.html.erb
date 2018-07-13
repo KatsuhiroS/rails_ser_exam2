@@ -23,6 +23,9 @@
 
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %>
-
+  <div class = "image_form">
+    <%= f.label :image %>
+    <%= f.file_field :user_image, id: :user_image %>
+  </div>
   <%= f.submit "Create my account" %>
 <% end %>

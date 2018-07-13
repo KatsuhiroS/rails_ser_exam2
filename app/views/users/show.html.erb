@@ -1,6 +1,9 @@
 <h1><%= @user.name %>のページ</h1>
 
 <p>メールアドレス: <%= @user.email %></p>
+<% if @user.user_image.present? %>
+  <%= image_tag(@user.user_image, :class => "user_image") %>
+<% end %>
 <% if @favorites.present? %>
   <% @favorites.each do |favorite| %>
     <%= favorite.blog.content %>

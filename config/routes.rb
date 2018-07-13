@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :contacts
   root to: 'blogs#top'
+  resources :contacts
   resources :blogs do
     collection do
       post :confirm

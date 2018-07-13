@@ -18,6 +18,11 @@
     <%= form.label :content %>
     <%= form.text_field :content %>
   </div>
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :blog_image %>
+  </div>
+
     <%= form.submit "投稿",  class: "btn btn-primary" %>
 <% end %>
 
